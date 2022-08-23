@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container {
+    width: 375px;
+    height: 667px;
+}
+
+header {    
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+header,
+footer {
+    width: 375px;
+    height: 80px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 75px;
+    margin-left: 22px;
+}
+
+.logo,
+.icon {
+    height: 80px;  
+    display: flex;
+    align-items: center; 
+}
+
+.icon {
+    width: 46px;
+    margin-right: 21px;
+}
+
+.text-container {
+    width: 375px;
+    height: 600px;
+    background-color: #E5E5E5;
+}
+
+
+footer {
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.type {
+    width: 300px;
+    margin-left: 17px;
+}
+
+.type,
+.send {
+    height: 80px;
+    display: flex;
+    align-items: center; 
+}
+
+.send {
+    width: 28px;
+    margin-right: 27px;
+}
+
+.type input {
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    color: #000000;
+  }
+
+  .fundo {
+    width: 375px;
+    height: 667px;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    left: 0;
+    z-index: 5;
+  }
+
+  .icon-container {
+    width: 259px;
+    height: 667px;
+    background-color: #FFFFFF;
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    margin-left: 116px;
+
+  }
+
+  .contato,
+  .visibilidade {
+    width: 259px;
+    height: 84px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .lista {
+    width: 239px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  li img {
+    margin-right: 8px;
+  }
+
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: center;
+
+  }
+
+  .hidden {
+    opacity: 0;
+  }

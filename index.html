@@ -10,40 +10,18 @@
 </head>
 <body>
     <div class="container">
-        <div class="fundo hidden"></div>
-        <div class="icon-container hidden">
-            <div class="contato">
-                <h1>Escolha um contato <br> para enviar mensagem:</h1>
+        <div class="entrada">
+            <div class="logo-uol">
+                <img src="img/logo 2.png"/>
             </div>
-            <ul class="lista">
-                <li>
-                    <img src="img/people 2.png"/>
-                    <h2>Todos</h2>
-                </li>
-                <li>
-                    <img src="img/person-circle 1.png"/>
-                    <h2>João</h2>
-                </li>
-                <li>
-                    <img src="img/person-circle 1.png"/>
-                    <h2>Maria</h2>
-                </li>
-            </ul>
-            <div class="visibilidade">
-                <h1>Escolha a visibilidade:</h1>
+            <div class="input-entrada">
+                <input type="text" placeholder="Digite seu nome" class="user"/>
             </div>
-            <ul class="lista">
-                <li>
-                    <img src="img/lock-open 1.png"/>
-                    <h2>Público</h2>
-                </li>
-                <li>
-                    <img src="img/lock-closed 1.png"/>
-                    <h2>Reservadamente</h2>
-                </li>
-            </ul>
+            <div class="entrar" onclick="entrar()">
+                <p>Entrar</p>
+            </div>
         </div>
-        <header>
+        <header class="hidden">
             <div class="logo">
                 <img src="img/logo 1.png"/>
             </div>
@@ -51,10 +29,10 @@
                 <img src="img/people 1.png" onclick="abaIcon()"/>
             </div>
         </header>
-        <div class="text-container">
-            
+        <div class="text-container hidden">
+        
         </div>
-        <footer>
+        <footer class="hidden">
             <div class="type">
                 <input type="text" placeholder="Escreva aqui..." class="texttype" />
             </div>

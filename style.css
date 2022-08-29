@@ -5,19 +5,73 @@
     box-sizing: border-box;
   }
 
+.entrada {
+  width: 375px;
+  height: 667px;
+  background-color: #FFFFFF;
+  position: fixed;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-uol {
+margin-top: 72px;
+margin-bottom: 94px;
+}
+
+.input-entrada input {
+width: 261px;
+height: 54px;
+border-radius: 4px;
+background: #FFFFFF;
+border: 1px solid #D7D7D7;
+color: #AEAEAE;
+font-family: 'Roboto';
+font-weight: 400;
+font-size: 18px;
+line-height: 25px;
+display: flex;
+align-items: center;
+text-align: center;
+}
+
+.entrar {
+  width: 109px;
+  height: 45px;
+  border-radius: 9px;
+  background-color: #E7E7E7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.selecionado {
+  pointer-events: none;
+}
+
+
+.entrar p {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #696969;
+}
 
 .container {
     width: 375px;
     height: 667px;
     background-color: #E5E5E5;
-
 }
 
 header {    
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
     position: fixed;
     left: 0;
-    top: 0;  
+    top: 0; 
 }
 
 header,
@@ -49,8 +103,10 @@ footer {
 
 .text-container {
     width: 375px;
-    height: 507px;
-    margin-top: 80px;
+    height: auto;
+    overflow: hidden;
+    padding-top: 106px;
+    padding-bottom: 80px;
 }
 
 .text {
@@ -96,6 +152,8 @@ footer {
 }
 
 .type input {
+    width: 290px;
+    height: 35px;
     border: none;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -174,14 +232,18 @@ footer {
   .status,
   .message {
     width:375px;
-    height: 40px;
+    height: auto;
+    padding-top: 11px;
+    padding-bottom: 11px;
     margin-bottom: 4px;
     border-radius: 2px;
   }
 
   .private-message {
     width:375px;
-    height: 63px;
+    height: auto;
+    padding-top: 11px;
+    padding-bottom: 11px;
     margin-bottom: 4px;
     border-radius: 2px;
     background-color: #FFDEDE;

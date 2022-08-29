@@ -1,33 +1,49 @@
 let mensagens = [];
 let nome;
 let user;
+let sairPaginaLogin;
+let barraSuperior;
+let barraInferior;
+let texto;
 
 function login() {
-    nome = prompt('Qual é seu nome?');
-}
-
-login();
-
-function novoUsuario(){
-
+    nome = document.querySelector('.user').value;
     user = {
         name: nome
-      }
+    }
+}
 
+function entrar() {
+    login();
+    novoUsuario();
+}
+
+
+function deuCerto(){
+    sairPaginaLogin = document.querySelector('.entrada');
+    sairPaginaLogin.classList.add('hidden');
+
+    barraSuperior = document.querySelector('header');
+    barraSuperior.classList.remove('hidden');
+
+    texto = document.querySelector('.text-container');
+    texto.classList.remove('hidden');
+
+    barraInferior = document.querySelector('footer');
+    barraInferior.classList.remove('hidden');
+}
+
+function novoUsuario() {
     let newUser = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', user);
+    newUser.then(deuCerto);
     newUser.catch(deuErroUm);
 }
-novoUsuario();
 
 function pegarMensagens() {
     const mensagensServidor = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     mensagensServidor.then(exibirMensagens);
     mensagensServidor.catch(deuErro)
-
-    setInterval(pegarMensagens, 3000);
-    //setInterval (manterConexao, 5000);
 }
-pegarMensagens();
 
 function exibirMensagens(resposta) {
     mensagens = resposta.data;
@@ -57,43 +73,47 @@ function enviarMensagens() {
     let elementMensagem = document.querySelector('.texttype').value;
     let elementDestino = "Todos";
     let elementTipo = "message";
-    
+
     console.log(elementMensagem);
     const novaMensagem = {
 
         from: elementNome,
         to: elementDestino,
         text: elementMensagem,
-        type: elementTipo 
+        type: elementTipo
 
     }
 
     const enviarMensagensServidor = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', novaMensagem);
     enviarMensagensServidor.then(pegarMensagens);
-    enviarMensagensServidor.catch(deuErroDois);
+
+    const zerarMensagem = document.querySelector(".texttype");
+    zerarMensagem.value = "";
 }
 
-function manterConexao(){
-   
+
+setInterval(pegarMensagens, 3000);
+
+
+function manterConexao() {
+
     user = {
         name: nome
-      }
-    
-   const newUser = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
+    }
+
+    const newUser = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
+    newUser.catch(login);
 }
 
+setInterval(manterConexao, 5000);
 
-function deuErroUm (erro){
-alert ('usuário já existente. favor digitar novo usuário');
-}
-
-function deuErroDois(erro){
-    alert ('mensagem não postada no banco de dados')
+function deuErroUm(erro) {
+    alert('esse usuário já existe. favor digitar um novo nome');
+    window.location.reload();
 }
 
 function deuErro(erro) {
-    alert ('mensagem não existe no banco de dados')
+    alert('usuário deslogado. favor refazer o login');
+    window.location.reload()
 }
 
-// quando o usuário sai da sala, a pagina da erro 400
-// quando o usuário tenta digitar uma outra mensagem da erro 400

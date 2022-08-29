@@ -14,10 +14,18 @@ function login() {
 }
 
 function entrar() {
-    login();
-    novoUsuario();
-}
+   login();
+   
+   let tirarInput = document.querySelector('.input-entrada');
+   tirarInput.classList.add('hidden');
 
+   let tirarBotao = document.querySelector('.entrar').classList.add('hidden');
+   console.log(tirarBotao);
+
+   let adicionarLoader = document.querySelector('.loader').classList.remove('hidden');
+
+   setTimeout(novoUsuario, 2000);
+}
 
 function deuCerto(){
     sairPaginaLogin = document.querySelector('.entrada');
@@ -57,10 +65,20 @@ function renderizarMensagens() {
     listaMensagens.innerHTML = '';
 
     for (let i = 0; i < mensagens.length; i++) {
+
+        if (mensagens[i].type === 'message'){
         listaMensagens.innerHTML = listaMensagens.innerHTML + `
         <div class="text ${mensagens[i].type}">
-        <p><span class="horario">(${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> ${mensagens[i].text}</p>
+        <p><span class="horario">(${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong>: ${mensagens[i].text}</p>
         </div>`;
+        }
+
+        if (mensagens[i].type === 'status'){
+            listaMensagens.innerHTML = listaMensagens.innerHTML + `
+            <div class="text ${mensagens[i].type}">
+            <p><span class="horario">(${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> ${mensagens[i].text}</p>
+            </div>`;
+            }
     }
 
     let ultimaMensagem = listaMensagens.lastChild;
@@ -91,9 +109,7 @@ function enviarMensagens() {
     zerarMensagem.value = "";
 }
 
-
 setInterval(pegarMensagens, 3000);
-
 
 function manterConexao() {
 
@@ -116,4 +132,14 @@ function deuErro(erro) {
     alert('usuário deslogado. favor refazer o login');
     window.location.reload()
 }
+
+document.addEventListener("keypress", function(enviarMensagens) {
+    if(enviarMensagens.key === 'Enter') {
+    
+        var btn = document.querySelector("#enviodeMensagem");
+      
+      btn.click();
+    
+    }
+  });
 
